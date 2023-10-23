@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robozin</title>
+    <style>
+        .container {
+            display: flex; 
+        }
+
+        .property-container {
+           background-image: url('fundo.jpg'); 
+            background-color: #f0f0f0; 
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            width: 400px;
+            height: 450px;
+        }
+
+        .image-container {
+            flex: 1; 
+            padding: 20px; 
+        }
+
+        .property {
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .property h2 {
+            margin-right: 10px;
+        }
+
+        img {
+            width: 100%; 
+            height: auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="property-container">
+            <div class="property">
+                <h2>Propriedade 1</h2>
+                <button class="decrement">-</button>
+                <span class="value">0</span>
+                <button class="increment">+</button>
+            </div>
+
+            <div class="property">
+                <h2>Propriedade 2</h2>
+                <button class="decrement">-</button>
+                <span class="value">0</span>
+                <button class="increment">+</button>
+            </div>
+
+            <div class="property">
+                <h2>Propriedade 3</h2>
+                <button class="decrement">-</button>
+                <span class="value">0</span>
+                <button class="increment">+</button>
+            </div>
+
+            <div class="property">
+                <h2>Propriedade 4</h2>
+                <button class="decrement">-</button>
+                <span class="value">0</span>
+                <button class="increment">+</button>
+            </div>
+            
+        </div>
+
+        <div class="image-container">
+            <img src="robotron-azul.png" alt="Descrição da imagem">
+        </div>
+    </div>
+
+    <script>
+        const properties = document.querySelectorAll('.property');
+
+        properties.forEach(property => {
+            const decrementButton = property.querySelector('.decrement');
+            const incrementButton = property.querySelector('.increment');
+            const valueElement = property.querySelector('.value');
+            let value = 0;
+
+            decrementButton.addEventListener('click', () => {
+                if (value > 0) {
+                    value--;
+                    valueElement.textContent = value;
+                }
+            });
+
+            incrementButton.addEventListener('click', () => {
+                if (value < 10) {
+                    value++;
+                    valueElement.textContent = value;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
